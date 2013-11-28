@@ -22,17 +22,17 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 public class HomeControllerTest {
 
     @Autowired
-    private WebApplicationContext wac;
+    private WebApplicationContext webApplicationContext;
 
     private MockMvc mockMvc;
 
     @Before
     public void setup() {
-        this.mockMvc = webAppContextSetup(this.wac).build();
+        this.mockMvc = webAppContextSetup(webApplicationContext).build();
     }
 
     @Test
-    public void getHome() throws Exception {
+    public void shouldGetHomeView() throws Exception {
         this.mockMvc.perform(get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
                 .andExpect(view().name("/home"));
