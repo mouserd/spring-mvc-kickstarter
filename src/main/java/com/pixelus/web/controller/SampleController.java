@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
+public class SampleController {
 
   @Value("${static.property}")
   private String staticProperty;
@@ -16,11 +16,20 @@ public class HomeController {
   private String dynamicProperty;
 
   @RequestMapping(value = "/", method = RequestMethod.GET)
-  public String displayHome(Model model) {
+  public String displayJspSample(Model model) {
 
     model.addAttribute("staticProperty", staticProperty);
     model.addAttribute("dynamicProperty", dynamicProperty);
 
-    return "/home";
+    return "/jspSample";
+  }
+
+  @RequestMapping(value = "/freemarker", method = RequestMethod.GET)
+  public String displayFreemarkerSample(Model model) {
+
+    model.addAttribute("staticProperty", staticProperty);
+    model.addAttribute("dynamicProperty", dynamicProperty);
+
+    return "/freemarkerSample";
   }
 }

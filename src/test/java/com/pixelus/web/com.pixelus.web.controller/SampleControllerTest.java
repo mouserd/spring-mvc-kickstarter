@@ -20,24 +20,38 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration("/spring-context.xml")
-public class HomeControllerTest {
+public class SampleControllerTest {
 
-    @Autowired
-    private WebApplicationContext webApplicationContext;
+  @Autowired
+  private WebApplicationContext webApplicationContext;
 
-    private MockMvc mockMvc;
+  private MockMvc mockMvc;
 
-    @Before
-    public void setup() {
-        this.mockMvc = webAppContextSetup(webApplicationContext).build();
-    }
+  @Before
+  public void setup() {
 
-    @Test
-    public void shouldGetHomeView() throws Exception {
-        this.mockMvc.perform(get("/").accept(MediaType.TEXT_HTML))
-                .andExpect(status().isOk())
-                .andExpect(view().name("/home"))
-                .andExpect(model().attribute("staticProperty", "test"))
-                .andExpect(model().attribute("dynamicProperty", "local"));
-    }
+    this.mockMvc = webAppContextSetup(webApplicationContext).build();
+  }
+
+  @Test
+  public void shouldGetJspView()
+      throws Exception {
+
+    this.mockMvc.perform(get("/").accept(MediaType.TEXT_HTML))
+        .andExpect(status().isOk())
+        .andExpect(view().name("/jspSample"))
+        .andExpect(model().attribute("staticProperty", "test"))
+        .andExpect(model().attribute("dynamicProperty", "local"));
+  }
+
+  @Test
+  public void shouldGetFreemarkerView()
+      throws Exception {
+
+    this.mockMvc.perform(get("/freemarker").accept(MediaType.TEXT_HTML))
+        .andExpect(status().isOk())
+        .andExpect(view().name("/freemarkerSample"))
+        .andExpect(model().attribute("staticProperty", "test"))
+        .andExpect(model().attribute("dynamicProperty", "local"));
+  }
 }
