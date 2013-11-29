@@ -4,6 +4,7 @@ This project aims to provide a good starting point when creating a Spring MVC ap
 
 ### Dependencies
 * Spring / Spring MVC
+* Hibernate
 * Testing: JUnit, Mockito, Hamcrest
 * Log4J
 
