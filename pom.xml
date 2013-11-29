@@ -302,6 +302,26 @@
     </dependency>
   </dependencies>
 
+  <profiles>
+    <profile>
+      <id>local</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <dynamicProperty>local</dynamicProperty>
+      </properties>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+
   <!-- PROPERTIES -->
   <properties>
     <spring.version>3.2.5.RELEASE</spring.version>

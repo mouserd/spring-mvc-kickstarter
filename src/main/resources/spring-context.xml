@@ -11,5 +11,7 @@
 
   <mvc:annotation-driven />
 
+  <c:property-placeholder location="classpath:webapp.properties" />
+
   <c:component-scan base-package="com.pixelus.web.controller" />
 </beans>
