@@ -303,6 +303,18 @@
     <!--</dependency>-->
 
     <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.12</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>r09</version>
+    </dependency>
+
+    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
@@ -336,6 +348,13 @@
       <version>1.3</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>0.8.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <profiles>
@@ -345,7 +364,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <dynamicProperty>local</dynamicProperty>
+        <dynamicProperty>dynamic property value</dynamicProperty>
       </properties>
       <build>
         <resources>

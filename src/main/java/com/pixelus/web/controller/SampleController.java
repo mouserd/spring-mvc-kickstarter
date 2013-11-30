@@ -1,10 +1,12 @@
 package com.pixelus.web.controller;
 
+import com.pixelus.web.controller.dto.SampleDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SampleController {
@@ -31,5 +33,11 @@ public class SampleController {
     model.addAttribute("dynamicProperty", dynamicProperty);
 
     return "/freemarkerSample";
+  }
+
+  @RequestMapping(value="/json", method = RequestMethod.GET)
+  public @ResponseBody SampleDto displayJsonSample() {
+
+    return new SampleDto(staticProperty, dynamicProperty);
   }
 }
