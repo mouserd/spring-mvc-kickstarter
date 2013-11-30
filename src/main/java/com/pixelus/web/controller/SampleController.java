@@ -35,7 +35,7 @@ public class SampleController {
     return "/freemarkerSample";
   }
 
-  @RequestMapping(value="/json", method = RequestMethod.GET)
+  @RequestMapping(value = "/json", method = RequestMethod.GET)
   public @ResponseBody SampleDto displayJsonSample() {
 
     return new SampleDto(staticProperty, dynamicProperty);
