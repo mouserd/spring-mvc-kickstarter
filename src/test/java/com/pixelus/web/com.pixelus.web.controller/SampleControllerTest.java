@@ -43,8 +43,8 @@ public class SampleControllerTest {
     mockMvc.perform(get("/").accept(TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(view().name("/jspSample"))
-        .andExpect(model().attribute("staticProperty", "static property value"))
-        .andExpect(model().attribute("dynamicProperty", "dynamic property value"));
+        .andExpect(model().attribute("staticProperty", is("static property value")))
+        .andExpect(model().attribute("dynamicProperty", is("dynamic property value")));
   }
 
   @Test
@@ -54,8 +54,8 @@ public class SampleControllerTest {
     mockMvc.perform(get("/freemarker").accept(TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(view().name("/freemarkerSample"))
-        .andExpect(model().attribute("staticProperty", "static property value"))
-        .andExpect(model().attribute("dynamicProperty", "dynamic property value"));
+        .andExpect(model().attribute("staticProperty", is("static property value")))
+        .andExpect(model().attribute("dynamicProperty", is("dynamic property value")));
   }
 
   @Test
