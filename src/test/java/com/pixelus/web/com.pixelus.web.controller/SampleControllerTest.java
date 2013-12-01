@@ -62,7 +62,7 @@ public class SampleControllerTest {
   @Test
   public void shouldGetJsonResponse() throws Exception {
 
-    mockMvc.perform(get("/json.json").accept(APPLICATION_JSON))
+    mockMvc.perform(get("/jsonSample.json").accept(APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("staticProperty", is("static property value")))
         .andExpect(jsonPath("dynamicProperty", is("dynamic property value")));
