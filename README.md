@@ -2,10 +2,12 @@
 
 This project aims to provide a good starting point when creating a Spring MVC application.  Out of the box, using Maven it provides you with the following:
 
-### Dependencies
+### Features / Dependencies
 * Spring / Spring MVC
 * Hibernate
-* Testing: JUnit, Mockito, Hamcrest
+* Your choice of JSON, JSP/JSTL, or Freemarker views
+* Testing with JUnit, Mockito, Hamcrest
+* Guava (Google collections)
 * Log4J
 
 ### Plugins
