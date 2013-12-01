@@ -1,5 +1,6 @@
 package com.pixelus.web.com.pixelus.web.controller;
 
+import com.pixelus.web.SpringAppConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("/spring-context.xml")
+@ContextConfiguration(classes={SpringAppConfiguration.class})
 public class SampleControllerTest {
 
   @Autowired
@@ -40,7 +41,7 @@ public class SampleControllerTest {
   public void shouldGetJspView()
       throws Exception {
 
-    mockMvc.perform(get("/").accept(TEXT_HTML))
+    mockMvc.perform(get("/jspSample").accept(TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(view().name("/jspSample"))
         .andExpect(model().attribute("staticProperty", is("static property value")))
@@ -51,7 +52,7 @@ public class SampleControllerTest {
   public void shouldGetFreemarkerView()
       throws Exception {
 
-    mockMvc.perform(get("/freemarker").accept(TEXT_HTML))
+    mockMvc.perform(get("/freemarkerSample").accept(TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(view().name("/freemarkerSample"))
         .andExpect(model().attribute("staticProperty", is("static property value")))
@@ -61,7 +62,7 @@ public class SampleControllerTest {
   @Test
   public void shouldGetJsonResponse() throws Exception {
 
-    mockMvc.perform(get("/json").accept(APPLICATION_JSON))
+    mockMvc.perform(get("/json.json").accept(APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("staticProperty", is("static property value")))
         .andExpect(jsonPath("dynamicProperty", is("dynamic property value")));

@@ -17,7 +17,7 @@ public class SampleController {
   @Value("${dynamic.property}")
   private String dynamicProperty;
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(value = "/jspSample", method = RequestMethod.GET)
   public String displayJspSample(Model model) {
 
     model.addAttribute("staticProperty", staticProperty);
@@ -26,7 +26,7 @@ public class SampleController {
     return "/jspSample";
   }
 
-  @RequestMapping(value = "/freemarker", method = RequestMethod.GET)
+  @RequestMapping(value = "/freemarkerSample", method = RequestMethod.GET)
   public String displayFreemarkerSample(Model model) {
 
     model.addAttribute("staticProperty", staticProperty);
