@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @PropertySource("classpath:webapp.properties")
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.pixelus.web.controller", "com.pixelus.web.controller.view"})
-public class SpringAppConfiguration extends WebMvcConfigurerAdapter {
+public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {

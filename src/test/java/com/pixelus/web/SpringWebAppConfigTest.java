@@ -16,14 +16,14 @@ import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.TEXT_HTML;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SpringAppConfigurationTest {
+public class SpringWebAppConfigTest {
 
-  private SpringAppConfiguration springAppConfiguration;
+  private SpringWebAppConfig springWebAppConfig;
 
   @Before
   public void setUp() throws Exception {
 
-    springAppConfiguration = new SpringAppConfiguration();
+    springWebAppConfig = new SpringWebAppConfig();
   }
 
   @Test
@@ -50,7 +50,7 @@ public class SpringAppConfigurationTest {
     ContentNegotiationConfigurer configurer = mock(ContentNegotiationConfigurer.class);
     when(configurer.ignoreAcceptHeader(anyBoolean())).thenReturn(configurer);
 
-    springAppConfiguration.configureContentNegotiation(configurer);
+    springWebAppConfig.configureContentNegotiation(configurer);
 
     verify(configurer).ignoreAcceptHeader(true);
     verify(configurer).defaultContentType(TEXT_HTML);
@@ -63,7 +63,7 @@ public class SpringAppConfigurationTest {
 
     when(registry.addResourceHandler(anyString())).thenReturn(registration);
 
-    springAppConfiguration.addResourceHandlers(registry);
+    springWebAppConfig.addResourceHandlers(registry);
 
     verify(registry).addResourceHandler("/" + resourceLocationName + "/**");
     verify(registration).addResourceLocations("/" + resourceLocationName + "/");

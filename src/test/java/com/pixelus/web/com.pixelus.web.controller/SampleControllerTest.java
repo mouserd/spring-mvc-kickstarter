@@ -1,6 +1,6 @@
 package com.pixelus.web.com.pixelus.web.controller;
 
-import com.pixelus.web.SpringAppConfiguration;
+import com.pixelus.web.SpringWebAppConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={SpringAppConfiguration.class})
+@ContextConfiguration(classes={SpringWebAppConfig.class})
 public class SampleControllerTest {
 
   @Autowired

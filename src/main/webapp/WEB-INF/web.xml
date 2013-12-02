@@ -39,7 +39,7 @@
     <!-- Config locations must consist of one or more comma- or space-delimited and fully-qualified @Configuration classes -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>com.pixelus.web.SpringAppConfiguration</param-value>
+      <param-value>com.pixelus.web.SpringWebAppConfig</param-value>
     </init-param>
   </servlet>
 
