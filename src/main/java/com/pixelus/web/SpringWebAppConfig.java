@@ -55,7 +55,7 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean(name = "beanNameViewResolver")
-  public ViewResolver getBeanNameViewResolver() {
+  public BeanNameViewResolver getBeanNameViewResolver() {
 
     BeanNameViewResolver resolver = new BeanNameViewResolver();
     resolver.setOrder(0);
@@ -64,7 +64,7 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean(name = "freemarkerViewResolver")
-  public ViewResolver getFreemarkerViewResolver() {
+  public FreeMarkerViewResolver getFreemarkerViewResolver() {
 
     FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
     resolver.setPrefix("");
@@ -85,7 +85,7 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean(name = "jspViewResolver")
-  public ViewResolver getJspViewResolver() {
+  public InternalResourceViewResolver getJspViewResolver() {
 
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
     resolver.setPrefix("/WEB-INF/views");
@@ -98,7 +98,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
   @Bean
   public ViewResolver getJsonViewResolver() {
 
-    JsonViewResolver resolver = new JsonViewResolver();
-    return resolver;
+    return new JsonViewResolver();
   }
 }

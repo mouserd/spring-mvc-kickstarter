@@ -7,7 +7,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -54,6 +59,26 @@ public class SpringWebAppConfigTest {
 
     verify(configurer).ignoreAcceptHeader(true);
     verify(configurer).defaultContentType(TEXT_HTML);
+  }
+
+  @Test
+  public void shouldRegisterBeanNameViewResolverAsFirstViewResolver() {
+
+    BeanNameViewResolver beanNameViewResolver = springWebAppConfig.getBeanNameViewResolver();
+    assertThat(beanNameViewResolver.getOrder(), is(0));
+  }
+
+  @Test
+  public void shouldRegisterFreemarkerViewResolverAsSecondViewResolver() {
+    FreeMarkerViewResolver freemarkerViewResolver = springWebAppConfig.getFreemarkerViewResolver();
+    assertThat(freemarkerViewResolver.getOrder(), is(1));
+  }
+
+  @Test
+  public void shouldRegisterJspViewResolverAsThirdViewResolver() throws Exception {
+
+    InternalResourceViewResolver jspViewResolver = springWebAppConfig.getJspViewResolver();
+    assertThat(jspViewResolver.getOrder(), is(2));
   }
 
   private void shouldAddResourceHandlerForResourceLocationName(String resourceLocationName) {
