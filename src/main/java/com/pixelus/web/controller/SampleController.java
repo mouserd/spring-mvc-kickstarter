@@ -19,7 +19,6 @@ public class SampleController {
 
   @RequestMapping(value = "/jspSample", method = RequestMethod.GET)
   public String displayJspSample(Model model) {
-
     model.addAttribute("staticProperty", staticProperty);
     model.addAttribute("dynamicProperty", dynamicProperty);
 
@@ -28,7 +27,6 @@ public class SampleController {
 
   @RequestMapping(value = "/freemarkerSample", method = RequestMethod.GET)
   public String displayFreemarkerSample(Model model) {
-
     model.addAttribute("staticProperty", staticProperty);
     model.addAttribute("dynamicProperty", dynamicProperty);
 
@@ -37,7 +35,6 @@ public class SampleController {
 
   @RequestMapping(value = "/jsonSample", method = RequestMethod.GET)
   public @ResponseBody SampleDto displayJsonSample() {
-
     return new SampleDto(staticProperty, dynamicProperty);
   }
 }

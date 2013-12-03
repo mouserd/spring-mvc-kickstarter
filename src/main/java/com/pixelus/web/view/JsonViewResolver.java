@@ -10,7 +10,6 @@ public class JsonViewResolver implements ViewResolver {
 
   @Override
   public View resolveViewName(String viewName, Locale locale) throws Exception {
-
     MappingJacksonJsonView view = new MappingJacksonJsonView();
     view.setPrettyPrint(true);
 

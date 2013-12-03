@@ -27,7 +27,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
     registry.addResourceHandler("/css/**").addResourceLocations("/css/");
     registry.addResourceHandler("/js/**").addResourceLocations("/js/");
     registry.addResourceHandler("/images/**").addResourceLocations("/images/");
@@ -35,19 +34,16 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean
   public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-
     return new PropertySourcesPlaceholderConfigurer();
   }
 
   @Override
   public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-
     configurer.ignoreAcceptHeader(true).defaultContentType(MediaType.TEXT_HTML);
   }
 
   @Bean
   public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
-
     ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
     resolver.setContentNegotiationManager(manager);
 
@@ -56,7 +52,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean(name = "beanNameViewResolver")
   public BeanNameViewResolver getBeanNameViewResolver() {
-
     BeanNameViewResolver resolver = new BeanNameViewResolver();
     resolver.setOrder(0);
 
@@ -65,7 +60,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean(name = "freemarkerViewResolver")
   public FreeMarkerViewResolver getFreemarkerViewResolver() {
-
     FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
     resolver.setPrefix("");
     resolver.setExposeSpringMacroHelpers(true);
@@ -77,7 +71,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean(name = "freemarkerConfig")
   public FreeMarkerConfigurer getFreemarkerConfig() {
-
     FreeMarkerConfigurer freeMarkerConfig = new FreeMarkerConfigurer();
     freeMarkerConfig.setTemplateLoaderPath("/WEB-INF/freemarker/");
 
@@ -86,7 +79,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean(name = "jspViewResolver")
   public InternalResourceViewResolver getJspViewResolver() {
-
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
     resolver.setPrefix("/WEB-INF/views");
     resolver.setSuffix(".jsp");
@@ -97,7 +89,6 @@ public class SpringWebAppConfig extends WebMvcConfigurerAdapter {
 
   @Bean
   public ViewResolver getJsonViewResolver() {
-
     return new JsonViewResolver();
   }
 }

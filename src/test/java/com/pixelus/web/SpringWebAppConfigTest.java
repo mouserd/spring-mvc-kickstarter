@@ -27,31 +27,26 @@ public class SpringWebAppConfigTest {
 
   @Before
   public void setUp() throws Exception {
-
     springWebAppConfig = new SpringWebAppConfig();
   }
 
   @Test
   public void shouldAddCssResourceHandler() {
-
     shouldAddResourceHandlerForResourceLocationName("css");
   }
 
   @Test
   public void shouldAddJavascriptResourceHandler() {
-
     shouldAddResourceHandlerForResourceLocationName("js");
   }
 
   @Test
   public void shouldAddImageResourceHandler() {
-
     shouldAddResourceHandlerForResourceLocationName("images");
   }
 
   @Test
   public void shouldConfigureContentNegotiation() {
-
     ContentNegotiationConfigurer configurer = mock(ContentNegotiationConfigurer.class);
     when(configurer.ignoreAcceptHeader(anyBoolean())).thenReturn(configurer);
 
@@ -63,7 +58,6 @@ public class SpringWebAppConfigTest {
 
   @Test
   public void shouldRegisterBeanNameViewResolverAsFirstViewResolver() {
-
     BeanNameViewResolver beanNameViewResolver = springWebAppConfig.getBeanNameViewResolver();
     assertThat(beanNameViewResolver.getOrder(), is(0));
   }
@@ -76,13 +70,11 @@ public class SpringWebAppConfigTest {
 
   @Test
   public void shouldRegisterJspViewResolverAsThirdViewResolver() throws Exception {
-
     InternalResourceViewResolver jspViewResolver = springWebAppConfig.getJspViewResolver();
     assertThat(jspViewResolver.getOrder(), is(2));
   }
 
   private void shouldAddResourceHandlerForResourceLocationName(String resourceLocationName) {
-
     ResourceHandlerRegistry registry = mock(ResourceHandlerRegistry.class);
     ResourceHandlerRegistration registration = mock(ResourceHandlerRegistration.class);
 
